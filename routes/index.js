@@ -19,6 +19,7 @@ const {
     table_pending,
     filter_trans_month
 } = require('../controllers/dashboard');
+const { count_jenis_weekly, count_reg_weekly, count_jenis_monthly } = require('../controllers/report');
 var router = express.Router();
 
 
@@ -41,5 +42,10 @@ router.get('/trans_by_category', trans_by_category);
 router.get('/table_pending', table_pending);
 router.post('/filter_trans_month', filter_trans_month);
 
+// report
+router.get('/count_jenis_weekly', count_jenis_weekly);
+router.get('/count_reg_weekly', count_reg_weekly);
+router.get('/count_jenis_monthly', count_jenis_monthly);
+router.get('/count_reg_monthly', count_jenis_monthly);
 
 module.exports = router;
