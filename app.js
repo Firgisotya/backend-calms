@@ -11,6 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
+require("dotenv").config();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -85,16 +86,6 @@ cron.schedule('0 10 * * 1,4', () => {
   });
   
 });
-
-
-  
-
-
-
-
-
-
-
 
 
 

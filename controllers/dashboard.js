@@ -86,7 +86,7 @@ module.exports = {
     count_temp: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_temp_h UNION SELECT id FROM hit_temp_h_ext")
+            query = await sequelize.query(`SELECT * FROM trans_kalibrasi WHERE category = 6`)
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -99,7 +99,7 @@ module.exports = {
     count_press: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_press_h UNION SELECT id FROM hit_press_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 7")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -112,7 +112,7 @@ module.exports = {
     count_mass: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_mass_h UNION SELECT id FROM hit_mass_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 8")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -125,7 +125,7 @@ module.exports = {
     count_ph: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_ph_h UNION SELECT id FROM hit_ph_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 5")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -138,7 +138,7 @@ module.exports = {
     count_conduct: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_conduct_h UNION SELECT id FROM hit_conduct_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 4")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -151,7 +151,7 @@ module.exports = {
     count_dimensi: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_dimensi_h UNION SELECT id FROM hit_dimensi_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 10")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -164,7 +164,7 @@ module.exports = {
     count_refracto: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_refracto_h UNION SELECT id FROM hit_refracto_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 3")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -177,7 +177,7 @@ module.exports = {
     count_enclosure: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_enclosure_h UNION SELECT id FROM hit_enclosure_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE category = 12")
             res.status(200).json({
                 status: 200,
                 message: "Success",
@@ -190,7 +190,7 @@ module.exports = {
     count_thermohygro: async (req, res) => {
         try {
             let query;
-            query = await sequelize.query("SELECT id FROM hit_thermohygro_h UNION SELECT id FROM hit_thermohygro_h_ext")
+            query = await sequelize.query("SELECT * FROM trans_kalibrasi WHERE sub_category = 5")
             res.status(200).json({
                 status: 200,
                 message: "Success",
