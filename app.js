@@ -65,8 +65,7 @@ cron.schedule('0 10 * * 1,4', () => {
   JOIN mst_sub_area f ON a.sub_area = f.id
   LEFT JOIN mst_sub_detail g ON a.sub_area_detail = g.id
   LEFT JOIN mst_vendor h ON a.vendor_calibration = h.id
-  WHERE a.exp_calibration between (DATE_ADD(NOW(), INTERVAL -2 MONTH)) AND
-  (DATE_ADD(NOW(), INTERVAL 6 MONTH)) AND a.isactive=1`);
+  WHERE a.exp_calibration between (DATE_ADD(NOW(), INTERVAL -2 MONTH)) AND a.isactive=1`);
 
   result.then((data) => {
     const rows = data[0];
