@@ -52,22 +52,18 @@ const bot = new TelegramBot(botToken, { polling: true });
 
 cron.schedule("0 10 * * 1,4", () => {
   const result =
-    sequelize.query(`SELECT a.id,a.id_trans,a.reg_or_recal,a.in_or_ex,
-  a.no_dok,a.equipment_number,a.equipment_name,a.brand,
-  a.serial_number,a.location_detail,a.tanggal_calibration,
-  a.exp_calibration,a.tanggal_release_certificate,a.requestor,
-  a.pic_input,a.model,a.kondisi_alat,a.acceptance_kriteria,a.isactive,
-  b.category,c.sub_category,d.departement,e.area,f.sub_area,g.area,h.vendor
-  FROM trans_kalibrasi a 
-  JOIN mst_category b ON a.category = b.id
-  JOIN mst_sub_category c ON a.sub_category = c.id
-  LEFT JOIN mst_dept d ON a.departement = d.id
-  JOIN mst_area e ON a.area = e.id
-  JOIN mst_sub_area f ON a.sub_area = f.id
-  LEFT JOIN mst_sub_detail g ON a.sub_area_detail = g.id
-  LEFT JOIN mst_vendor h ON a.vendor_calibration = h.id
-  WHERE a.exp_calibration between (DATE_ADD(NOW(), INTERVAL -2 MONTH)) AND NOW()  
-  AND a.isactive=1`);
+    sequelize.query(`SELECT a.*,
+    b.category,c.sub_category,d.departement,e.area,f.sub_area,g.area,h.vendor
+    FROM trans_kalibrasi a 
+    left JOIN mst_category b ON a.category = b.id
+    left JOIN mst_sub_category c ON a.sub_category = c.id
+    LEFT JOIN mst_dept d ON a.departement = d.id
+    left JOIN mst_area e ON a.area = e.id
+    left JOIN mst_sub_area f ON a.sub_area = f.id
+    LEFT JOIN mst_sub_detail g ON a.sub_area_detail = g.id
+    LEFT JOIN mst_vendor h ON a.vendor_calibration = h.id
+    WHERE a.exp_calibration between NOW() and (DATE_ADD(NOW(), INTERVAL 2 MONTH))  
+    AND a.isactive=1`);
 
   result.then((data) => {
     const rows = data[0];

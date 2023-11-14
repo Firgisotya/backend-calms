@@ -250,6 +250,7 @@ module.exports = {
       LEFT JOIN mst_sub_detail g ON a.sub_area_detail = g.id
       LEFT JOIN mst_vendor h ON a.vendor_calibration = h.id
       WHERE a.isactive=1
+      ORDER BY a.id DESC
       `);
       res.status(200).json({
         status: 200,
